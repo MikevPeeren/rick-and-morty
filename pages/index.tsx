@@ -9,7 +9,7 @@ import React, { ReactElement, useState, useEffect } from 'react';
 import CharacterFetcher from './components/CharacterFetcher';
 import CharacterDisplay from './components/CharacterDisplay';
 
-const Home: FC<{}> = (): ReactElement => {
+const Home: FC = (): ReactElement => {
   const [character, setCharacter] = useState();
 
   useEffect(async () => {
@@ -25,6 +25,8 @@ const Home: FC<{}> = (): ReactElement => {
   const handleFetch = async (characterNumber) => {
     const request = await fetch(`https://rickandmortyapi.com/api/character/${characterNumber}`);
     const result = await request.json();
+
+    setCharacter(result);
   };
 
   return (

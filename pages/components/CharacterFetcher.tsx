@@ -2,7 +2,7 @@
 import React, { FC, ReactElement, useState } from 'react';
 
 interface CharacterFetcherProps {
-  handleFetch: Function;
+  handleFetch: (number) => unknown;
 }
 const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterFetcherProps): ReactElement => {
   const [inputValue, setInputValue] = useState();
@@ -10,7 +10,8 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
   const updateInputValue = (event) => {
     setInputValue(event?.target?.value);
   };
-  const handleNewNumber = () => {};
+
+  // const handleNewNumber = () => {};
 
   return (
     <form
@@ -38,7 +39,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
         <button
           title="Random Number"
           type="button"
-          onClick={handleNewNumber}
+          // onClick={handleNewNumber}
           className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none"
         >
           <svg

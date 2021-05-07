@@ -2,7 +2,20 @@
 import React, { FC, ReactElement } from 'react';
 
 interface CharacterDisplayProps {
-  character: any;
+  character: {
+    image: string;
+    name: string;
+    id: number;
+    status: string;
+    species: string;
+    gender: string;
+    origin: {
+      name: string;
+    };
+    location: {
+      string;
+    };
+  };
 }
 const CharacterDisplay: FC<{ CharacterDisplayProps }> = ({ character }: CharacterDisplayProps): ReactElement => {
   return (
