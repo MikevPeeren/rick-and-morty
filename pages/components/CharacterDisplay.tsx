@@ -13,7 +13,7 @@ interface CharacterDisplayProps {
       name: string;
     };
     location: {
-      string;
+      name: string;
     };
   };
 }
