@@ -3,19 +3,28 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 // React
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 
 // Components
-import CharacterFetcher from './CharacterFetcher';
+import CharacterFetcher from './components/CharacterFetcher';
+import CharacterDisplay from './components/CharacterDisplay';
 
 const Home: FC<{}> = (): ReactElement => {
   const [character, setCharacter] = useState();
 
+  useEffect(async () => {
+    const request = await fetch(`https://rickandmortyapi.com/api/character/2`);
+    const result = await request.json();
+    setCharacter(result);
+
+    return () => {
+      cleanup;
+    };
+  });
+
   const handleFetch = async (characterNumber) => {
     const request = await fetch(`https://rickandmortyapi.com/api/character/${characterNumber}`);
     const result = await request.json();
-
-    setCharacter(result);
   };
 
   return (
@@ -39,6 +48,7 @@ const Home: FC<{}> = (): ReactElement => {
           </div>
         </div>
         <CharacterFetcher handleFetch={handleFetch} />
+        {character && <CharacterDisplay character={character} />}
       </main>
 
       <footer>
