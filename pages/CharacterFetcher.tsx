@@ -8,7 +8,10 @@ const CharacterFetcher = () => {
   return (
     <form>
       <div className="flex flex-row justify-center">
-        <input className="mx-1 w-1/5 rounded-xl bg-gray-300 text-black" placeholder="Write a Number!" />
+        <input
+          className="pl-4 mx-1 w-1/5 rounded-xl bg-gray-300 text-black focus:outline-none"
+          placeholder="Write a Number!"
+        />
         <button
           title="Gather Character Information"
           type="submit"
@@ -26,7 +29,7 @@ const CharacterFetcher = () => {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 512 512"
             height="1em"
             width="1em"
