@@ -1,21 +1,21 @@
 // React
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useState, MouseEvent, FormEvent, ChangeEvent } from 'react';
 
 interface CharacterFetcherProps {
-  handleFetch: (number) => unknown;
+  handleFetch: (arg0: string) => unknown;
 }
 const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterFetcherProps): ReactElement => {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState('');
 
-  const updateInputValue = (event) => {
-    setInputValue(event?.target?.value);
+  const updateInputValue = (event: MouseEvent<HTMLInputElement>) => {
+    setInputValue((event?.target as HTMLInputElement)?.value);
   };
 
   // const handleNewNumber = () => {};
 
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={(event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         handleFetch(inputValue);
       }}
@@ -24,7 +24,10 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
         <input
           className="pl-4 mx-1 w-1/5 rounded-xl bg-gray-300 text-black focus:outline-none"
           placeholder="Write a Number!"
-          onChange={(event) => updateInputValue(event)}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {
+            //@ts-ignore
+            updateInputValue(event);
+          }}
         />
         <button
           title="Gather Character Information"

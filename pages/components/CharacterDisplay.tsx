@@ -2,22 +2,24 @@
 import React, { FC, ReactElement } from 'react';
 
 interface CharacterDisplayProps {
-  character: {
-    image: string;
-    name: string;
-    id: number;
-    status: string;
-    species: string;
-    gender: string;
-    origin: {
-      name: string;
-    };
-    location: {
-      name: string;
-    };
-  };
+  character:
+    | {
+        image: string;
+        name: string;
+        id: number;
+        status: string;
+        species: string;
+        gender: string;
+        origin: {
+          name: string;
+        };
+        location: {
+          name: string;
+        };
+      }
+    | undefined;
 }
-const CharacterDisplay: FC<{ CharacterDisplayProps }> = ({ character }: CharacterDisplayProps): ReactElement => {
+const CharacterDisplay: FC<CharacterDisplayProps> = ({ character }: CharacterDisplayProps): ReactElement => {
   return (
     <div className="flex flex-col justify-center m-10">
       <div className="flex justify-center">
