@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "prettify": "prettier --write '{apis,apps,shared}/**/*.js' ",
+    "prettify": "prettier --write '{pages}/**/*.tsx' ",
     "pretty-quick": "pretty-quick --staged"
   },
   "dependencies": {
