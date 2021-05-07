@@ -1,5 +1,5 @@
 // React
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement } from 'react';
 
 interface CharacterDisplayProps {
   character: any;
