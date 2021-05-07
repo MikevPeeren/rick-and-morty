@@ -22,7 +22,7 @@ const Home: FC = (): ReactElement => {
       //@ts-ignore
       cleanup;
     };
-  });
+  }, []);
 
   const handleFetch = async (characterNumber: string) => {
     const request = await fetch(`https://rickandmortyapi.com/api/character/${characterNumber}`);
