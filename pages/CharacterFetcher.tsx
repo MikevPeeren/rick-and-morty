@@ -1,22 +1,37 @@
 // React
-import React, { ReactElement } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 
-const CharacterFetcher = () => {
-  const handleFetch = () => {};
+interface CharacterFetcherProps {
+  handleFetch: Function;
+}
+const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterFetcherProps): ReactElement => {
+  const [inputValue, setInputValue] = useState();
+
+  const updateInputValue = (event) => {
+    setInputValue(event?.target?.value);
+  };
   const handleNewNumber = () => {};
 
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        handleFetch(inputValue);
+      }}
+    >
       <div className="flex flex-row justify-center">
         <input
           className="pl-4 mx-1 w-1/5 rounded-xl bg-gray-300 text-black focus:outline-none"
           placeholder="Write a Number!"
+          onChange={(event) => updateInputValue(event)}
         />
         <button
           title="Gather Character Information"
-          type="submit"
-          onClick={handleFetch}
-          className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl"
+          type="button"
+          onClick={() => {
+            handleFetch(inputValue);
+          }}
+          className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none"
         >
           Fetch
         </button>
@@ -24,7 +39,7 @@ const CharacterFetcher = () => {
           title="Random Number"
           type="button"
           onClick={handleNewNumber}
-          className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl"
+          className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none"
         >
           <svg
             stroke="currentColor"

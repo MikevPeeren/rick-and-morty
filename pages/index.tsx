@@ -3,11 +3,21 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 // React
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 // Components
 import CharacterFetcher from './CharacterFetcher';
-export default function Home() {
+
+const Home: FC<{}> = (): ReactElement => {
+  const [character, setCharacter] = useState();
+
+  const handleFetch = async (characterNumber) => {
+    const request = await fetch(`https://rickandmortyapi.com/api/character/${characterNumber}`);
+    const result = await request.json();
+
+    setCharacter(result);
+  };
+
   return (
     <div>
       <Head>
@@ -28,9 +38,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div>
-          <CharacterFetcher />
-        </div>
+        <CharacterFetcher handleFetch={handleFetch} />
       </main>
 
       <footer>
@@ -40,4 +48,6 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+};
+
+export default Home;
