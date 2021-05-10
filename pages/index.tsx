@@ -12,16 +12,14 @@ import CharacterDisplay from './components/CharacterDisplay';
 const Home: FC = (): ReactElement => {
   const [character, setCharacter] = useState();
 
-  //@ts-ignore
-  useEffect(async () => {
-    const request = await fetch(`https://rickandmortyapi.com/api/character/2`);
-    const result = await request.json();
-    setCharacter(result);
-
-    return () => {
-      //@ts-ignore
-      cleanup;
+  useEffect(() => {
+    const getCharacter = async () => {
+      const request = await fetch(`https://rickandmortyapi.com/api/character/2`);
+      const result = await request.json();
+      setCharacter(result);
     };
+
+    getCharacter();
   }, []);
 
   const handleFetch = async (characterNumber: string) => {
