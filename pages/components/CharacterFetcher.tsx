@@ -22,10 +22,11 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
     setInputValue(inputValue);
   };
 
-  const handleNewNumber = async () => {
+  const handleNewNumber = () => {
     const randomNumber = Math.floor(Math.random() * characterInfo?.info?.count);
 
-    console.log(randomNumber);
+    setInputValue(randomNumber);
+    handleFetch(randomNumber);
   };
 
   return (
@@ -42,6 +43,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             updateInputValue(event.currentTarget.value);
           }}
+          value={inputValue}
         />
         <button
           title="Gather Character Information"
