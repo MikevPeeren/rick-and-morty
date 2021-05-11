@@ -1,6 +1,9 @@
 // React
 import React, { FC, ReactElement, useState, useEffect, FormEvent, ChangeEvent } from 'react';
 
+// External
+import classNames from 'classNames';
+
 interface CharacterFetcherProps {
   handleFetch: (arg0: string) => Promise<void>;
 }
@@ -11,6 +14,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
       count: 0,
     },
   });
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const getCharacterInfo = async () => {
@@ -23,6 +27,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
   }, []);
 
   const updateInputValue = (inputValue: string) => {
+    setIsDisabled(false);
     setInputValue(inputValue);
   };
 
@@ -32,6 +37,13 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
     setInputValue(randomNumber);
     handleFetch(randomNumber);
   };
+
+  const buttonClasses = classNames(
+    'mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none',
+    {
+      'opacity-50 bg-gray-200 text-black': isDisabled,
+    },
+  );
 
   return (
     <form
@@ -53,9 +65,11 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
           title="Gather Character Information"
           type="button"
           onClick={() => {
+            setIsDisabled(true);
             handleFetch(inputValue);
           }}
-          className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none"
+          className={buttonClasses}
+          disabled={isDisabled}
         >
           Fetch
         </button>
