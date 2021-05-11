@@ -6,7 +6,11 @@ interface CharacterFetcherProps {
 }
 const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterFetcherProps): ReactElement => {
   const [inputValue, setInputValue] = useState('');
-  const [characterInfo, setCharacterInfo] = useState();
+  const [characterInfo, setCharacterInfo] = useState({
+    info: {
+      count: 0,
+    },
+  });
 
   useEffect(() => {
     const getCharacterInfo = async () => {
@@ -23,7 +27,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
   };
 
   const handleNewNumber = () => {
-    const randomNumber = Math.floor(Math.random() * characterInfo?.info?.count);
+    const randomNumber = String(Math.floor(Math.random() * characterInfo?.info?.count));
 
     setInputValue(randomNumber);
     handleFetch(randomNumber);
