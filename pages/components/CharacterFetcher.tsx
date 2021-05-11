@@ -1,17 +1,32 @@
 // React
-import React, { FC, ReactElement, useState, FormEvent, ChangeEvent } from 'react';
+import React, { FC, ReactElement, useState, useEffect, FormEvent, ChangeEvent } from 'react';
 
 interface CharacterFetcherProps {
   handleFetch: (arg0: string) => Promise<void>;
 }
 const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterFetcherProps): ReactElement => {
   const [inputValue, setInputValue] = useState('');
+  const [characterInfo, setCharacterInfo] = useState();
+
+  useEffect(() => {
+    const getCharacterInfo = async () => {
+      const request = await fetch('https://rickandmortyapi.com/api/character');
+      const characterInfo = await request.json();
+      setCharacterInfo(characterInfo);
+    };
+
+    getCharacterInfo();
+  }, []);
 
   const updateInputValue = (inputValue: string) => {
     setInputValue(inputValue);
   };
 
-  // const handleNewNumber = () => {};
+  const handleNewNumber = async () => {
+    const randomNumber = Math.floor(Math.random() * characterInfo?.info?.count);
+
+    console.log(randomNumber);
+  };
 
   return (
     <form
@@ -41,7 +56,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
         <button
           title="Random Number"
           type="button"
-          // onClick={handleNewNumber}
+          onClick={handleNewNumber}
           className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none"
         >
           <svg
