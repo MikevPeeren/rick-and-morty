@@ -1,7 +1,11 @@
 # Rick-And-Morty
 
-Find your favorite Characters based on their number.
+Find your favorite Characters based on their Character Number.
 
-Available @ https://rick-and-morty-lemon-two.vercel.app/
+API used: https://rickandmortyapi.com/
 
-![alt text](public/background.jpg)
+**Available @** https://rick-and-morty-lemon-two.vercel.app/
+
+<p align="center">
+  <img src="public/background.jpg" width=500 height=300/>
+</p>
