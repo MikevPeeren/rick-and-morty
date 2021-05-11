@@ -2,7 +2,7 @@
 import React, { FC, ReactElement, useState, useEffect, FormEvent, ChangeEvent } from 'react';
 
 // External
-import classNames from 'classNames';
+import classNames from 'classnames';
 
 interface CharacterFetcherProps {
   handleFetch: (arg0: string) => Promise<void>;
