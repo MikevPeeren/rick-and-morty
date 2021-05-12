@@ -11,6 +11,7 @@ import CharacterDisplay from './components/CharacterDisplay';
 
 const Home: FC = (): ReactElement => {
   const [character, setCharacter] = useState();
+  const [characterID, setCharacterID] = useState();
   const [error, setError] = useState('');
   const [finishedFetching, setFinishedFetching] = useState(false);
 
@@ -32,9 +33,11 @@ const Home: FC = (): ReactElement => {
 
     if (result?.error) {
       setCharacter(undefined);
+      setCharacterID(undefined);
       setError(result?.error);
     } else {
       setCharacter(result);
+      setCharacterID(result?.id);
       setError('');
     }
 
@@ -61,7 +64,7 @@ const Home: FC = (): ReactElement => {
             />
           </div>
         </div>
-        <CharacterFetcher handleFetch={handleFetch} finishedFetching={finishedFetching} />
+        <CharacterFetcher characterID={characterID} handleFetch={handleFetch} finishedFetching={finishedFetching} />
         {(character || error) && <CharacterDisplay character={character} error={error} />}
       </main>
 

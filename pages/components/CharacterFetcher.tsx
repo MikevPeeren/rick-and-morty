@@ -5,10 +5,12 @@ import React, { FC, ReactElement, useState, useEffect, FormEvent, ChangeEvent } 
 import classNames from 'classnames';
 
 interface CharacterFetcherProps {
+  characterID: number | undefined;
   handleFetch: (arg0: string) => Promise<void>;
   finishedFetching: boolean;
 }
 const CharacterFetcher: FC<CharacterFetcherProps> = ({
+  characterID,
   handleFetch,
   finishedFetching,
 }: CharacterFetcherProps): ReactElement => {
@@ -18,10 +20,14 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({
       count: 0,
     },
   });
+  const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-    if (isDisabled) setIsDisabled(!finishedFetching);
+    if (isDisabled) {
+      setIsDisabled(!finishedFetching);
+      setIsSubmitButtonDisabled(!finishedFetching);
+    }
   }, [finishedFetching]);
 
   useEffect(() => {
@@ -34,9 +40,10 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({
     getCharacterInfo();
   }, []);
 
-  const updateInputValue = (inputValue: string) => {
-    setInputValue(inputValue);
-    setIsDisabled(false);
+  const updateInputValue = (newInputValue: string) => {
+    setInputValue(newInputValue);
+    if (String(newInputValue) !== String(characterID)) setIsSubmitButtonDisabled(false);
+    else setIsSubmitButtonDisabled(true);
   };
 
   const handleNewNumber = () => {
@@ -49,7 +56,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({
   const fetchButtonClasses = classNames(
     'mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none',
     {
-      'opacity-50 bg-gray-200 text-black': isDisabled,
+      'opacity-50 bg-gray-200 text-black': isSubmitButtonDisabled,
     },
   );
 
@@ -81,11 +88,11 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({
           title="Gather Character Information"
           type="button"
           onClick={() => {
-            setIsDisabled(true);
+            setIsSubmitButtonDisabled(true);
             handleFetch(inputValue);
           }}
           className={fetchButtonClasses}
-          disabled={isDisabled}
+          disabled={isSubmitButtonDisabled}
         >
           Fetch
         </button>
