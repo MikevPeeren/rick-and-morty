@@ -21,7 +21,6 @@ interface CharacterDisplayProps {
   error: string | undefined;
 }
 const CharacterDisplay: FC<CharacterDisplayProps> = ({ character, error }: CharacterDisplayProps): ReactElement => {
-  console.log(character);
   return (
     <div className="flex flex-col justify-center m-10">
       <div className="flex justify-center">

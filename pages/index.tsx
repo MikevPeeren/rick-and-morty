@@ -12,6 +12,7 @@ import CharacterDisplay from './components/CharacterDisplay';
 const Home: FC = (): ReactElement => {
   const [character, setCharacter] = useState();
   const [error, setError] = useState('');
+  const [finishedFetching, setFinishedFetching] = useState(false);
 
   useEffect(() => {
     const getCharacter = async () => {
@@ -24,6 +25,8 @@ const Home: FC = (): ReactElement => {
   }, []);
 
   const handleFetch = async (characterNumber: string) => {
+    setFinishedFetching(false);
+
     const request = await fetch(`https://rickandmortyapi.com/api/character/${characterNumber}`);
     const result = await request.json();
 
@@ -34,6 +37,8 @@ const Home: FC = (): ReactElement => {
       setCharacter(result);
       setError('');
     }
+
+    setFinishedFetching(true);
   };
 
   return (
@@ -56,7 +61,7 @@ const Home: FC = (): ReactElement => {
             />
           </div>
         </div>
-        <CharacterFetcher handleFetch={handleFetch} />
+        <CharacterFetcher handleFetch={handleFetch} finishedFetching={finishedFetching} />
         {(character || error) && <CharacterDisplay character={character} error={error} />}
       </main>
 

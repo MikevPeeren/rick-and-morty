@@ -6,8 +6,12 @@ import classNames from 'classnames';
 
 interface CharacterFetcherProps {
   handleFetch: (arg0: string) => Promise<void>;
+  finishedFetching: boolean;
 }
-const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterFetcherProps): ReactElement => {
+const CharacterFetcher: FC<CharacterFetcherProps> = ({
+  handleFetch,
+  finishedFetching,
+}: CharacterFetcherProps): ReactElement => {
   const [inputValue, setInputValue] = useState('');
   const [characterInfo, setCharacterInfo] = useState({
     info: {
@@ -15,6 +19,10 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
     },
   });
   const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    if (isDisabled) setIsDisabled(!finishedFetching);
+  }, [finishedFetching]);
 
   useEffect(() => {
     const getCharacterInfo = async () => {
@@ -27,8 +35,8 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
   }, []);
 
   const updateInputValue = (inputValue: string) => {
-    setIsDisabled(false);
     setInputValue(inputValue);
+    setIsDisabled(false);
   };
 
   const handleNewNumber = () => {
@@ -38,7 +46,14 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
     handleFetch(randomNumber);
   };
 
-  const buttonClasses = classNames(
+  const fetchButtonClasses = classNames(
+    'mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none',
+    {
+      'opacity-50 bg-gray-200 text-black': isDisabled,
+    },
+  );
+
+  const randomFetchButtonClasses = classNames(
     'mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none',
     {
       'opacity-50 bg-gray-200 text-black': isDisabled,
@@ -60,6 +75,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
             updateInputValue(event.currentTarget.value);
           }}
           value={inputValue}
+          disabled={isDisabled}
         />
         <button
           title="Gather Character Information"
@@ -68,7 +84,7 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
             setIsDisabled(true);
             handleFetch(inputValue);
           }}
-          className={buttonClasses}
+          className={fetchButtonClasses}
           disabled={isDisabled}
         >
           Fetch
@@ -77,7 +93,8 @@ const CharacterFetcher: FC<CharacterFetcherProps> = ({ handleFetch }: CharacterF
           title="Random Number"
           type="button"
           onClick={handleNewNumber}
-          className="mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none"
+          className={randomFetchButtonClasses}
+          disabled={isDisabled}
         >
           <svg
             stroke="currentColor"
