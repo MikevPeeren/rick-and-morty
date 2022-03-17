@@ -432,9 +432,9 @@ astral-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/astral-regex/-/astral-regex-2.0.0.tgz"
 
-autoprefixer@^10.4.2, autoprefixer@^10.4.3:
-  version "10.4.3"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.3.tgz#d4b9358be607c30d1900c1412d0d668f98bb5a6a"
+autoprefixer@^10.4.2, autoprefixer@^10.4.4:
+  version "10.4.4"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.4.tgz#3e85a245b32da876a893d3ac2ea19f01e7ea5a1e"
   dependencies:
     browserslist "^4.20.2"
     caniuse-lite "^1.0.30001317"
