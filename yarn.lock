@@ -2197,9 +2197,9 @@ rxjs@^7.5.2:
   dependencies:
     tslib "^2.1.0"
 
-sass@^1.49.9:
-  version "1.49.9"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.49.9.tgz"
+sass@^1.49.10:
+  version "1.49.10"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.10.tgz#7b83cee0f03bbba443111b3f94944fde2b0c7a6b"
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
