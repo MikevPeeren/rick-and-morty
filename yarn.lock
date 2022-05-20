@@ -15,6 +15,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@csstools/postcss-cascade-layers@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-1.0.1.tgz#a41b391f1cd4dd952efc638cbad1d64509478d04"
+  dependencies:
+    "@csstools/selector-specificity" "^1.0.0"
+    postcss-selector-parser "^6.0.10"
+
 "@csstools/postcss-color-function@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@csstools/postcss-color-function/-/postcss-color-function-1.1.0.tgz#229966327747f58fbe586de35daa139db3ce1e5d"
@@ -28,9 +35,9 @@
   dependencies:
     postcss-value-parser "^4.2.0"
 
-"@csstools/postcss-hwb-function@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@csstools/postcss-hwb-function/-/postcss-hwb-function-1.0.0.tgz"
+"@csstools/postcss-hwb-function@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-hwb-function/-/postcss-hwb-function-1.0.1.tgz#5224db711ed09a965f85c80c18144ac1c2702fce"
   dependencies:
     postcss-value-parser "^4.2.0"
 
@@ -41,10 +48,11 @@
     "@csstools/postcss-progressive-custom-properties" "^1.1.0"
     postcss-value-parser "^4.2.0"
 
-"@csstools/postcss-is-pseudo-class@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-2.0.2.tgz#a834ca11a43d6ed9bc9e3ff53c80d490a4b1aaad"
+"@csstools/postcss-is-pseudo-class@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-2.0.4.tgz#6e8b49b96a7d3346d5316bd773dcff9c983b4183"
   dependencies:
+    "@csstools/selector-specificity" "^1.0.0"
     postcss-selector-parser "^6.0.10"
 
 "@csstools/postcss-normalize-display-values@^1.0.0":
@@ -72,9 +80,13 @@
   dependencies:
     postcss-value-parser "^4.2.0"
 
-"@csstools/postcss-unset-value@^1.0.0":
+"@csstools/postcss-unset-value@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-unset-value/-/postcss-unset-value-1.0.1.tgz#2cc020785db5ec82cc9444afe4cdae2a65445f89"
+
+"@csstools/selector-specificity@1.0.0", "@csstools/selector-specificity@^1.0.0":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-unset-value/-/postcss-unset-value-1.0.0.tgz#f6e0e58376f09e381a49bd553772a97a477da3fd"
+  resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-1.0.0.tgz#91c560df2ed8d9700e4c7ed4ac21a3a322c9d975"
 
 "@eslint/eslintrc@^1.2.3":
   version "1.2.3"
@@ -418,7 +430,7 @@ astral-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/astral-regex/-/astral-regex-2.0.0.tgz"
 
-autoprefixer@^10.4.6, autoprefixer@^10.4.7:
+autoprefixer@^10.4.7:
   version "10.4.7"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.7.tgz#1db8d195f41a52ca5069b7593be167618edbbedf"
   dependencies:
@@ -1810,10 +1822,11 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
-postcss-nesting@^10.1.4:
-  version "10.1.4"
-  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-10.1.4.tgz#80de9d1c2717bc44df918dd7f118929300192a7a"
+postcss-nesting@^10.1.6:
+  version "10.1.6"
+  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-10.1.6.tgz#9cd7221285577858a7cb38b94faabe4979226551"
   dependencies:
+    "@csstools/selector-specificity" "1.0.0"
     postcss-selector-parser "^6.0.10"
 
 postcss-opacity-percentage@^1.1.2:
@@ -1834,21 +1847,22 @@ postcss-place@^7.0.4:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-preset-env@^7.5.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-7.5.0.tgz#0c1f23933597d55dab4a90f61eda30b76e710658"
+postcss-preset-env@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-7.6.0.tgz#4e6178d97fc1ddd7fec168c9034eb17258a5bf12"
   dependencies:
+    "@csstools/postcss-cascade-layers" "^1.0.1"
     "@csstools/postcss-color-function" "^1.1.0"
     "@csstools/postcss-font-format-keywords" "^1.0.0"
-    "@csstools/postcss-hwb-function" "^1.0.0"
+    "@csstools/postcss-hwb-function" "^1.0.1"
     "@csstools/postcss-ic-unit" "^1.0.0"
-    "@csstools/postcss-is-pseudo-class" "^2.0.2"
+    "@csstools/postcss-is-pseudo-class" "^2.0.4"
     "@csstools/postcss-normalize-display-values" "^1.0.0"
     "@csstools/postcss-oklab-function" "^1.1.0"
     "@csstools/postcss-progressive-custom-properties" "^1.3.0"
     "@csstools/postcss-stepped-value-functions" "^1.0.0"
-    "@csstools/postcss-unset-value" "^1.0.0"
-    autoprefixer "^10.4.6"
+    "@csstools/postcss-unset-value" "^1.0.1"
+    autoprefixer "^10.4.7"
     browserslist "^4.20.3"
     css-blank-pseudo "^3.0.3"
     css-has-pseudo "^3.0.4"
@@ -1874,19 +1888,19 @@ postcss-preset-env@^7.5.0:
     postcss-lab-function "^4.2.0"
     postcss-logical "^5.0.4"
     postcss-media-minmax "^5.0.0"
-    postcss-nesting "^10.1.4"
+    postcss-nesting "^10.1.6"
     postcss-opacity-percentage "^1.1.2"
     postcss-overflow-shorthand "^3.0.3"
     postcss-page-break "^3.0.4"
     postcss-place "^7.0.4"
-    postcss-pseudo-class-any-link "^7.1.2"
+    postcss-pseudo-class-any-link "^7.1.4"
     postcss-replace-overflow-wrap "^4.0.0"
     postcss-selector-not "^5.0.0"
     postcss-value-parser "^4.2.0"
 
-postcss-pseudo-class-any-link@^7.1.2:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-7.1.2.tgz#81ec491aa43f97f9015e998b7a14263b4630bdf0"
+postcss-pseudo-class-any-link@^7.1.4:
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-7.1.4.tgz#ac72aac4fe11fc4a0a368691f8fd5fe89e95aba4"
   dependencies:
     postcss-selector-parser "^6.0.10"
 
