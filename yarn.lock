@@ -128,9 +128,15 @@
   version "12.2.3"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.2.3.tgz#64f210e74c137d3d9feea738795b055a7f8aebe2"
 
-"@next/eslint-plugin-next@12.2.3", "@next/eslint-plugin-next@^12.2.1":
+"@next/eslint-plugin-next@12.2.3":
   version "12.2.3"
   resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.2.3.tgz#63726691aac6a7f01b64190a0323d590a0e8154d"
+  dependencies:
+    glob "7.1.7"
+
+"@next/eslint-plugin-next@^12.2.4":
+  version "12.2.4"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.2.4.tgz#b7496cf11050577cfa815612c541195c1b4871eb"
   dependencies:
     glob "7.1.7"
 
