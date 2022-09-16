@@ -15,9 +15,9 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@csstools/postcss-cascade-layers@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-1.0.6.tgz#a52da13b91fc184a52337b4e938c3d3188e537b0"
+"@csstools/postcss-cascade-layers@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-1.1.0.tgz#05a820357aac0de097b4acac43f85a55973220e7"
   dependencies:
     "@csstools/selector-specificity" "^2.0.2"
     postcss-selector-parser "^6.0.10"
@@ -471,7 +471,7 @@ astral-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/astral-regex/-/astral-regex-2.0.0.tgz"
 
-autoprefixer@^10.4.11, autoprefixer@^10.4.8:
+autoprefixer@^10.4.11:
   version "10.4.11"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.11.tgz#835136aff1d9cd43640151e0d2dba00f8eac7c1c"
   dependencies:
@@ -1823,9 +1823,9 @@ postcss-custom-media@^8.0.2:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-custom-properties@^12.1.8:
-  version "12.1.8"
-  resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-12.1.8.tgz#aa003e1885c5bd28e2e32496cd597e389ca889e4"
+postcss-custom-properties@^12.1.9:
+  version "12.1.9"
+  resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-12.1.9.tgz#0883429a7ef99f1ba239d1fea29ce84906daa8bd"
   dependencies:
     postcss-value-parser "^4.2.0"
 
@@ -1926,9 +1926,9 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
-postcss-nesting@^10.1.10:
-  version "10.1.10"
-  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-10.1.10.tgz#9c396df3d8232cbedfa95baaac6b765b8fd2a817"
+postcss-nesting@^10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-10.2.0.tgz#0b12ce0db8edfd2d8ae0aaf86427370b898890be"
   dependencies:
     "@csstools/selector-specificity" "^2.0.0"
     postcss-selector-parser "^6.0.10"
@@ -1953,11 +1953,11 @@ postcss-place@^7.0.5:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-preset-env@^7.8.1:
-  version "7.8.1"
-  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-7.8.1.tgz#2bfe935736727ab601a5c718bf24fc9f858eceb0"
+postcss-preset-env@^7.8.2:
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-7.8.2.tgz#4c834d5cbd2e29df2abf59118947c456922b79ba"
   dependencies:
-    "@csstools/postcss-cascade-layers" "^1.0.6"
+    "@csstools/postcss-cascade-layers" "^1.1.0"
     "@csstools/postcss-color-function" "^1.1.1"
     "@csstools/postcss-font-format-keywords" "^1.0.1"
     "@csstools/postcss-hwb-function" "^1.0.2"
@@ -1971,7 +1971,7 @@ postcss-preset-env@^7.8.1:
     "@csstools/postcss-text-decoration-shorthand" "^1.0.0"
     "@csstools/postcss-trigonometric-functions" "^1.0.2"
     "@csstools/postcss-unset-value" "^1.0.2"
-    autoprefixer "^10.4.8"
+    autoprefixer "^10.4.11"
     browserslist "^4.21.3"
     css-blank-pseudo "^3.0.3"
     css-has-pseudo "^3.0.4"
@@ -1983,7 +1983,7 @@ postcss-preset-env@^7.8.1:
     postcss-color-hex-alpha "^8.0.4"
     postcss-color-rebeccapurple "^7.1.1"
     postcss-custom-media "^8.0.2"
-    postcss-custom-properties "^12.1.8"
+    postcss-custom-properties "^12.1.9"
     postcss-custom-selectors "^6.0.3"
     postcss-dir-pseudo-class "^6.0.5"
     postcss-double-position-gradients "^3.1.2"
@@ -1997,7 +1997,7 @@ postcss-preset-env@^7.8.1:
     postcss-lab-function "^4.2.1"
     postcss-logical "^5.0.4"
     postcss-media-minmax "^5.0.0"
-    postcss-nesting "^10.1.10"
+    postcss-nesting "^10.2.0"
     postcss-opacity-percentage "^1.1.2"
     postcss-overflow-shorthand "^3.0.4"
     postcss-page-break "^3.0.4"
